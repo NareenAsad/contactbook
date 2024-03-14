@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 class NumberProvider with ChangeNotifier {
   List<Map<String, String>> _numbers = [
-    {'name': 'Mama', 'number': '123456789'},
-    {'name': 'Papa', 'number': '987654321'},
+    {'name': 'Mama', 'number': '123456789', 'org': ''},
+    {'name': 'Papa', 'number': '987654321', 'org': ''},
     {'name': 'Adeena', 'number': '456123789', 'org': 'lcwu'},
     {'name': 'Aimen', 'number': '789456123', 'org': 'gulberg'},
-    {'name': 'Nareen Asad', 'number': '135724689'},
+    {'name': 'Nareen Asad', 'number': '135724689', 'org': ''},
   ];
 
   String _name = '';

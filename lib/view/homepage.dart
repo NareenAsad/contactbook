@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _provider = Provider.of<NumberProvider>(context, listen: false);
-    _provider.loadNumbers(); // Load numbers when the widget initializes
+    _provider.loadNumbers();
   }
 
   @override
