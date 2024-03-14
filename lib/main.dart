@@ -8,6 +8,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  get number => null;
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
