@@ -12,21 +12,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  void _toggleFav(Map<String, String> contact) {
-    Provider.of<NumberProvider>(context, listen: false).toggleFavorite(contact);
-  }
-
-  late NumberProvider _provider;
-
-  @override
-  void initState() {
-    super.initState();
-    _provider = Provider.of<NumberProvider>(context, listen: false);
-    _provider.loadNumbers();
-  }
+  late NumberProvider _provider; // Declare _provider variable
 
   @override
   Widget build(BuildContext context) {
+    _provider = Provider.of<NumberProvider>(context,
+        listen: false); // Initialize _provider here
     return Scaffold(
       backgroundColor: Colors.black,
       body: Consumer<NumberProvider>(
@@ -210,5 +201,9 @@ class _HomePageState extends State<HomePage> {
         );
       },
     );
+  }
+
+  void _toggleFav(Map<String, String> contact) {
+    _provider.toggleFavorite(contact);
   }
 }

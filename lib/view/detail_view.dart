@@ -1,4 +1,3 @@
-import 'package:contact_book/view/widgets/homepage_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:contact_book/controller/provider/profidermanager.dart';
@@ -21,6 +20,8 @@ class DetailPage extends StatelessWidget {
         _provider.addToFavorites(contact);
       }
     }
+
+    Color heartColor = _provider.isFavorite(number) ? Colors.red : Colors.white;
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -85,7 +86,7 @@ class DetailPage extends StatelessWidget {
           Card(
             elevation: 4,
             color: Colors.blueGrey,
-            margin: EdgeInsets.all(12),
+            margin: EdgeInsets.symmetric(horizontal: 50),
             child: Padding(
               padding: EdgeInsets.all(12),
               child: Row(
@@ -93,7 +94,7 @@ class DetailPage extends StatelessWidget {
                     CrossAxisAlignment.start, // Align children to the start
                 children: [
                   Text(
-                    'Organization: ${number['org']}',
+                    'Organization: ${number['organization']}',
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.white,
@@ -135,10 +136,8 @@ class DetailPage extends StatelessWidget {
           children: [
             IconButton(
               icon: Icon(
-                _provider.isFavorite(number)
-                    ? Icons.favorite
-                    : Icons.favorite_border,
-                color: Colors.white,
+                Icons.favorite,
+                color: heartColor, // Use the defined color here
               ),
               onPressed: () {
                 _toggleFav(number);
@@ -146,14 +145,7 @@ class DetailPage extends StatelessWidget {
             ),
             IconButton(
               icon: Icon(Icons.edit, color: Colors.white),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AddNumberDialog(),
-                  ),
-                );
-              },
+              onPressed: () {},
             ),
             IconButton(
               icon: Icon(Icons.share, color: Colors.white),

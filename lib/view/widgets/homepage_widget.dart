@@ -11,9 +11,7 @@ class _AddNumberDialogState extends State<AddNumberDialog> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration.zero, () {
-      Provider.of<NumberProvider>(context, listen: false).loadNumbers();
-    });
+    Provider.of<NumberProvider>(context, listen: false).loadNumbers(context);
   }
 
   Widget build(BuildContext context) {
